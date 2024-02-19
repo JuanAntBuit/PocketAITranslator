@@ -1,4 +1,4 @@
-/**  RuleThree Android application to solve rules of three
+/**  PocketAITranslator Android application to translate using an AI API
  *  Copyright (C) 2023 Juan Antonio Buitrago Balsalobre
  *
  *  This program is free software: you can redistribute it and/or modify
