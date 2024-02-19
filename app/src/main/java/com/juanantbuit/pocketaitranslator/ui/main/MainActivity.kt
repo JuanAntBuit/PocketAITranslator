@@ -1,4 +1,4 @@
-package com.juanantbuit.pocketaitranslator
+package com.juanantbuit.pocketaitranslator.ui.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -37,7 +37,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, apiLevel = 33)
 @Composable
 fun GreetingPreview() {
     PocketAITranslatorTheme {
