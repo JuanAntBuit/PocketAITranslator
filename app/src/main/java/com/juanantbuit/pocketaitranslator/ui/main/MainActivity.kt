@@ -28,7 +28,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.juanantbuit.pocketaitranslator.ui.components.Header
+import com.juanantbuit.pocketaitranslator.ui.components.MyBottomNavigation
+import com.juanantbuit.pocketaitranslator.ui.components.MyHeader
 import com.juanantbuit.pocketaitranslator.ui.theme.PocketAITranslatorTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,8 +38,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             PocketAITranslatorTheme {
                 Scaffold(
-                    topBar = { Header() },
-                    bottomBar = { /* TODO BottomNavigation */ }
+                    topBar = { MyHeader() },
+                    bottomBar = { MyBottomNavigation() }
                 ) { innerPadding ->
                     //Temporary Box to fill the screen
                     Box(
@@ -58,7 +59,7 @@ class MainActivity : ComponentActivity() {
 fun Previews() {
     PocketAITranslatorTheme(darkTheme = true) {
         Surface {
-            Header()
+            MyBottomNavigation()
         }
     }
 }

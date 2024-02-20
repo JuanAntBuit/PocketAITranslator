@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PocketAITranslator</string>
+
+    <string name="history_btn">History</string>
+    <string name="translate_btn">Translate</string>
+    <string name="stats_btn">Stats</string>
 </resources>

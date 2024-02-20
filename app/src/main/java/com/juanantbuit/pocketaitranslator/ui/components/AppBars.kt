@@ -23,10 +23,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,7 +45,7 @@ import com.juanantbuit.pocketaitranslator.R
 import com.juanantbuit.pocketaitranslator.ui.theme.InterFamily
 
 @Composable
-fun Header() {
+fun MyHeader() {
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -64,5 +72,58 @@ fun Header() {
                 tint = MaterialTheme.colorScheme.onPrimary
             )
         }
+    }
+}
+
+@Composable
+fun MyBottomNavigation() {
+    val items = listOf("History", "Translate", "Statistics")
+    var selectedItem by remember { mutableStateOf(items[1]) }
+
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.secondary
+    ) {
+        items.forEach { item ->
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        painter = getIconForItem(item),
+                        contentDescription = item
+                    )
+                },
+                label = {
+                    Text(
+                        text = stringResource(getResourceIdForLabel(item))
+                    )
+                },
+                selected = selectedItem == item,
+                onClick = { selectedItem = item },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = MaterialTheme.colorScheme.onPrimary,
+                    unselectedIconColor = MaterialTheme.colorScheme.onTertiary,
+                    selectedTextColor = MaterialTheme.colorScheme.onPrimary,
+                    unselectedTextColor = MaterialTheme.colorScheme.onTertiary
+                )
+            )
+        }
+    }
+}
+
+@Composable
+fun getIconForItem(item: String): Painter {
+    return when (item) {
+        "History" -> painterResource(R.drawable.ic_history)
+        "Translate" -> painterResource(R.drawable.ic_translate)
+        "Statistics" -> painterResource(R.drawable.ic_stats)
+        else -> painterResource(R.drawable.ic_translate) // default icon
+    }
+}
+
+fun getResourceIdForLabel(label: String): Int {
+    return when (label) {
+        "History" -> R.string.history_btn
+        "Translate" -> R.string.translate_btn
+        "Statistics" -> R.string.stats_btn
+        else -> R.string.translate_btn // default label
     }
 }
