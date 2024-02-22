@@ -4,4 +4,16 @@
     <string name="history_btn">History</string>
     <string name="translate_btn">Translate</string>
     <string name="stats_btn">Stats</string>
+
+    <string name="select_language">Select Language</string>
+    <string name="search">Search</string>
+    <string name="no_match_language">No matching languages found</string>
+
+    <string-array name="available_languages">
+        <item>English</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>German</item>
+    </string-array>
+
 </resources>
